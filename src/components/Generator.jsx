@@ -4,11 +4,8 @@ import SectionWrapper from './SectionWrapper';
 import Header from './Header';
 import Button from './Button';
 
-const Generator = () => {
+const Generator = ({ poison, setPoison, muscles, setMuscles, goal, setGoal }) => {
   const [showModal, setShowModal] = useState(false);
-  const [poison, setPoison] = useState('individual');
-  const [muscles, setMuscles] = useState([]);
-  const [goal, setGoal] = useState('strength_power');
 
   const toggleModal = () => {
     setShowModal(!showModal);
