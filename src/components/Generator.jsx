@@ -4,7 +4,7 @@ import SectionWrapper from './SectionWrapper';
 import Header from './Header';
 import Button from './Button';
 
-const Generator = ({ poison, setPoison, muscles, setMuscles, goal, setGoal }) => {
+const Generator = ({ poison, setPoison, muscles, setMuscles, goal, setGoal, updateWorkout }) => {
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
@@ -21,7 +21,7 @@ const Generator = ({ poison, setPoison, muscles, setMuscles, goal, setGoal }) =>
     if (muscles.length > 2) {
       return;
     }
-    // If
+
     if (poison != 'individual') {
       setMuscles([muscleGroup]);
       setShowModal(false);
@@ -78,7 +78,7 @@ const Generator = ({ poison, setPoison, muscles, setMuscles, goal, setGoal }) =>
         )}
       </div>
       <Header index={'03'} title={'Become Juggernaut'} description={'Select your ultimate objective.'} />
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {Object.keys(SCHEMES).map((scheme, schemeIndex) => {
           return (
             <button
@@ -93,7 +93,7 @@ const Generator = ({ poison, setPoison, muscles, setMuscles, goal, setGoal }) =>
           );
         })}
       </div>
-      <Button text={'Formulate'} />
+      <Button func={updateWorkout} text={'Formulate'} />
     </SectionWrapper>
   );
 };
